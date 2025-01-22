@@ -10,7 +10,7 @@ import {
 import { SlLayers } from "react-icons/sl";
 import { SlDoc } from "react-icons/sl";
 import { SlCamera } from "react-icons/sl";
-import whitCurvedImg from "../../../public/white-curved.jpeg";
+import whitCurvedImg from "/pricing/white-curved.jpeg";
 // CLERK
 import { UserButton, useUser } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ function SideNavbar() {
           </svg>
         </button>
 
-        <a href="#" className="flex py-2 pl-4">
+        <a href="/" className="flex py-2 pl-4">
           <img src="/logo.svg" className="h-6 me-3 sm:h-7" alt=" Logo" />
           <span className="text-2xl font-bold self-center  whitespace-nowrap dark:text-white">
             <span className="text-emerald-600">Bloom</span>
@@ -105,7 +105,7 @@ function SideNavbar() {
             </button>
           </div>
           {/* LOGO */}
-          <a href="#" className="flex items-center ps-2.5 mb-10">
+          <a href="/" className="flex items-center ps-2.5 mb-10">
             <img src="/logo.svg" className="h-6 me-3 sm:h-7" alt=" Logo" />
             <span className="text-2xl font-bold self-center  whitespace-nowrap dark:text-white">
               <span className="text-emerald-600">Bloom</span>.
