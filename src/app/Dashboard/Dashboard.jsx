@@ -11,11 +11,10 @@ function Dashboard() {
     <>
       <SideBar />
 
-      <div className="h-screen p-0 sm:p-4 sm:ml-64 bg-slate-50">
-        <div className="p-2 md:mt-5">
-          <div className="mx-auto max-w-screen-xl px-6 bg-slate-50">
-
-      <Tip/>
+      <div className="h-screen p-4 sm:ml-64 bg-slate-50">
+        <div className=" ">
+          <div className="mx-auto max-w-screen-xl px-1 bg-slate-50">
+            <Tip />
 
             {/* Header Section */}
             <div className="flex flex-row justify-between items-center mb-1 mt-2 space-y-0">
@@ -32,14 +31,15 @@ function Dashboard() {
                   size="sm"
                   className="flex items-center gap-2 px-2 py-2 bg-emerald-700 hover:bg-emerald-500 focus:bg-emerald-500 border-primary rounded-full text-white text-sm"
                 >
-                  <BsPlusLg className="h-5 w-5 text-white" /> <span className="hidden md:block"> Add Task </span>
+                  <BsPlusLg className="h-5 w-5 text-white" />{" "}
+                  <span className="hidden md:block"> Add Task </span>
                 </Button>
               </div>
             </div>
 
             <p className="text-base text-gray-500 dark:text-gray-400 hidden sm:block mb-1">
-              Stay on top of your plant care with these upcoming tasks
-              tailored to keep your plants thriving!
+              Stay on top of your plant care with these upcoming tasks tailored
+              to keep your plants thriving!
             </p>
 
             {/* Upcoming Tasks Component */}
