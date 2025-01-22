@@ -15,6 +15,18 @@ export const works = [
     artist: "Vladimir Malyavko",
     art: "https://images.unsplash.com/photo-1711790670823-fe7d09e6e4d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  {
+    artist: "Ornella Binni",
+    art: "https://images.unsplash.com/photo-1605351720698-6cfec9eb9b5e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGxhbnQlMjBjYXJlfGVufDB8fDB8fHww",
+  },
+  {
+    artist: "Tom Byrom",
+    art: "https://images.unsplash.com/photo-1605449669573-8abe6d34d583?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYW50JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    artist: "Vladimir Malyavko",
+    art: "https://images.unsplash.com/photo-1711790670823-fe7d09e6e4d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 
 export function UpcomingTasks() {

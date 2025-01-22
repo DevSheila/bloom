@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import SideNavbar from "@/elements/SideBar/SideBar";
 import SideBar from "@/elements/SideBar/SideBar";
+import Tip from "@/elements/Tip/Tip";
 import { UpcomingTasks } from "@/elements/UpcomingTasks/UpcomingTasks";
 import React from "react";
 import { BsArrowUpRight, BsPlusLg } from "react-icons/bs";
@@ -13,6 +14,9 @@ function Dashboard() {
       <div className="h-screen p-0 sm:p-4 sm:ml-64 bg-slate-50">
         <div className="p-2 md:mt-5">
           <div className="mx-auto max-w-screen-xl px-6 bg-slate-50">
+
+      <Tip/>
+
             {/* Header Section */}
             <div className="flex flex-row justify-between items-center mb-1 mt-2 space-y-0">
               {/* Upcoming Tasks Title */}
