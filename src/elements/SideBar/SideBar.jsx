@@ -167,16 +167,16 @@ function SideNavbar() {
 
             <hr className="my-2 border-emerald-gray-50" />
 
-            <div class=" flex justify-between items-center w-full mt-1">
-              <div class="flex justify-center items-center  space-x-2">
+            <div className=" flex justify-between items-center w-full mt-1">
+              <div className="flex justify-center items-center  space-x-2">
                 <div>
                   <UserButton />
                 </div>
-                <div class="flex justify-start flex-col items-start">
-                  <p class="cursor-pointer text-sm leading-5 text-gray-900 capitalize ">
+                <div className="flex justify-start flex-col items-start">
+                  <p className="cursor-pointer text-sm leading-5 text-gray-900 capitalize ">
                     {/* {user.firstName ||"FirstName"} {user.lastName || "LastName"}  */} First Name
                   </p>
-                  <p class="cursor-pointer text-xs leading-3 text-gray-700">
+                  <p className="cursor-pointer text-xs leading-3 text-gray-700">
                     {/* {user?.emailAddresses?.[0]?.emailAddress ||
                       "No email available"} */}Email
                   </p>

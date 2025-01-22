@@ -60,7 +60,7 @@ function NavBar() {
               </li>
             </Link>
 
-            <Link to={"/"}>
+            <Link to={"/dashboard"}>
               <li
                 className={`hover:text-emerald-700 hover:font-bold  transition-all cursor-pointer  md:mr-12  ${
                   path == "/dashboard" && "text-green-700 font-bold"
