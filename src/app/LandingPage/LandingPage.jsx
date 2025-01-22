@@ -12,28 +12,22 @@ function LandingPage() {
               <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight text-slate-700 sm:text-5xl sm:leading-snug">
                 Nurture Your Plants
                 <br />
-                With The
-                <span class="inline-block text-green-500">Power of AI</span>
+                With 
+                <span class="inline-block text-green-500">Bloom</span>
               </h2>
               <p class="text-base text-gray-700 md:text-lg">
                 Transform your gardening experience with personalized care
-                plans, real-time diagnostics, and expert insights. Let Bloom
-                help your plants thrive like never before!
+                plans, real-time diagnostics, and expert insights. Let us
+                help your plants bloom like never before!
               </p>
             </div>
             <div class="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2 lg:justify-start">
+
               <a
-                href="/"
-                class="inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-green-400 focus:ring sm:w-auto"
+                href="/dashboard"
+                class="inline-flex h-12 w-full items-center justify-center rounded-full border-2 border-green-500 px-4 font-semibold text-green-600 transition-colors duration-200 hover:border-y-green-400 hover:text-white hover:bg-emerald-600 sm:w-auto"
               >
-                {" "}
-                Start Growing with Bloom{" "}
-              </a>
-              <a
-                href="/"
-                class="inline-flex h-12 w-full items-center justify-center rounded-full border-2 border-green-500 px-4 font-semibold text-green-600 transition-colors duration-200 hover:border-y-green-400 hover:text-green-400 sm:w-auto"
-              >
-                Watch How Bloom Works
+                Start Growing with Bloom
               </a>
             </div>
 
@@ -61,11 +55,11 @@ function LandingPage() {
                     <path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z" />
                   </svg>
                   <span class="text-sm font-medium text-slate-400">
-                    {" "}
-                    4.9 •{" "}
+                    
+                    4.9 •
                     <a href="#" class="text-sm font-normal underline">
                       129 reviews
-                    </a>{" "}
+                    </a>
                   </span>
                 </div>
               </div>
