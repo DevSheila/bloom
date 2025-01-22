@@ -115,19 +115,14 @@ function SideNavbar() {
           <ul className="space-y-2 font-medium flex-grow">
             {[
               {
-                name: "Resume Builder",
-                href: "/resumebuilder",
-                icon: SlDoc,
-              },
-              {
-                name: "Mock Interview",
-                href: "/mockinterview",
-                icon: SlCamera,
-              },
-              {
-                name: "Templates",
-                href: "/templates",
+                name: "Dashboard",
+                href: "/dashboard",
                 icon: SlLayers,
+              },
+              {
+                name: "Home",
+                href: "/",
+                icon: SlDoc,
               },
             ].map((item) => (
               <li key={item.name}>
@@ -161,7 +156,9 @@ function SideNavbar() {
               </Button>
 
               <p className="mb-3 text-sm text-emerald-800 dark:text-emerald-400 ">
-              Unlock exclusive tools and advanced AI features with Bloom. Don’t settle for ordinary—let your plants thrive and bloom extraordinarily!
+                Unlock exclusive tools and advanced AI features with Bloom.
+                Don’t settle for ordinary—let your plants thrive and bloom
+                extraordinarily!
               </p>
             </div>
 
@@ -174,11 +171,13 @@ function SideNavbar() {
                 </div>
                 <div className="flex justify-start flex-col items-start">
                   <p className="cursor-pointer text-sm leading-5 text-gray-900 capitalize ">
-                    {/* {user.firstName ||"FirstName"} {user.lastName || "LastName"}  */} First Name
+                    {/* {user.firstName ||"FirstName"} {user.lastName || "LastName"}  */}{" "}
+                    First Name
                   </p>
                   <p className="cursor-pointer text-xs leading-3 text-gray-700">
                     {/* {user?.emailAddresses?.[0]?.emailAddress ||
-                      "No email available"} */}Email
+                      "No email available"} */}
+                    Email
                   </p>
                 </div>
               </div>
