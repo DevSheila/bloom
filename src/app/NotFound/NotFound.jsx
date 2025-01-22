@@ -7,9 +7,10 @@ function NotFound() {
         <div className="text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            id="girl-enjoying-reading"
             viewBox="0 0 1024 768"
             className="mx-auto h-56 w-auto text-black sm:h-64"
+            id="girl-enjoying-reading"
+
           >
             <g fill="none" fill-rule="evenodd">
               <path
