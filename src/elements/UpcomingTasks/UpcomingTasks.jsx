@@ -34,7 +34,7 @@ export function UpcomingTasks() {
 
   return (
     <ScrollArea className="w-full whitespace-nowrap rounded-md">
-      <div className="flex w-max space-x-4 p-4">
+      <div className="flex w-max space-x-4 py-1">
         {works.map((artwork, index) => (
           <figure
             key={artwork.artist}
