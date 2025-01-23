@@ -23,7 +23,7 @@ const CityDateDetail = (props) => {
         sx={{
           width: '100%',
           height: '40px',
-          flexDirection: { xs: 'column', sm: 'row' },
+          flexDirection: 'row',
         }}
       >
         <Box
@@ -58,8 +58,8 @@ const CityDateDetail = (props) => {
         sx={{
           fontSize: { xs: "10px", sm: "12px", md: "14px" },
           color: "rgb(0,0,0)",
+          textAlign: 'center',
           lineHeight: 1,
-          letterSpacing: { xs: "1px", sm: "0" },
         }}
       >
         Today {props.date}

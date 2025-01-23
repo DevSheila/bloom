@@ -18,7 +18,7 @@ const TemperatureWeatherDetail = (props) => {
         component="h3"
         sx={{
           fontWeight: '500',
-          fontSize: { xs: '12px', sm: '14px', md: '40px' },
+          fontSize: { xs: '30px', sm: '30px', md: '40px' },
           color: 'black',
           
         }}
@@ -32,7 +32,7 @@ const TemperatureWeatherDetail = (props) => {
           fontSize: { xs: '10px', sm: '12px', md: '14px' },
           color: 'rgb(0,0,0)',
           lineHeight: 1,
-          letterSpacing: { xs: '1px', sm: '0' },
+          textAlign: 'center',
         }}
       >
         {props.description} 
