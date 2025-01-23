@@ -5,6 +5,7 @@ import Tip from "@/elements/Tip/Tip";
 import { UpcomingTasks } from "@/elements/UpcomingTasks/UpcomingTasks";
 import React from "react";
 import { BsArrowUpRight, BsPlusLg } from "react-icons/bs";
+import WeatherForecasting from "../WeatherForecasting/WeatherForecasting";
 
 function Dashboard() {
   return (
@@ -14,7 +15,11 @@ function Dashboard() {
       <div className="h-screen p-4 sm:ml-64 bg-slate-50">
         <div className=" ">
           <div className="mx-auto max-w-screen-xl px-1 bg-slate-50">
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
             <Tip />
+            <WeatherForecasting/>
+            </div>
 
             {/* Header Section */}
             <div className="flex flex-row justify-between items-center mb-1 mt-2 space-y-0">

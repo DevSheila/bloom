@@ -46,6 +46,7 @@ function App() {
             element={<PrivateRoute element={<Dashboard />} />} //Protected route
           />
 
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
