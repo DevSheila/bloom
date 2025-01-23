@@ -12,6 +12,7 @@ import Dashboard from "./app/Dashboard/Dashboard";
 import LandingPage from "./app/LandingPage/LandingPage";
 import SpinLoader from "./elements/Loaders/SpinLoader";
 import { useUser } from "@clerk/clerk-react";
+import WeatherForecasting from "./app/WeatherForecasting/WeatherForecasting";
 
 const PrivateRoute = ({ element }) => {
   const { isLoaded, isSignedIn } = useUser();
@@ -45,6 +46,8 @@ function App() {
             path="/dashboard"
             element={<PrivateRoute element={<Dashboard />} />} //Protected route
           />
+          <Route exact path="/weather" element={<WeatherForecasting />} />
+
 
           <Route path="*" element={<NotFound />} />
         </Routes>
