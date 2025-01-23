@@ -15,6 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { BsPlusLg } from "react-icons/bs";
 
 const PlacesFormPage = () => {
   const { id } = useParams();
@@ -95,13 +96,21 @@ const PlacesFormPage = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <div className="ml-2">
+          <Button
+            size="sm"
+            className="flex items-center gap-2 p-1 bg-emerald-700 hover:bg-emerald-500 focus:bg-emerald-500 border-primary rounded-full text-white text-sm"
+          >
+            <BsPlusLg className="h-5 w-5 text-white" />{" "}
+            <span className="hidden md:block"> Start a Diagnosis </span>
+          </Button>
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit Profile</DialogTitle>
+          <DialogTitle>Ask Our Plant Doctor</DialogTitle>
           <DialogDescription>
-            Update your profile and save changes when you're done.
+          Get tailored advice for your plant's specific needs. Simply provide photos and describe the symptoms.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={savePlace}>
@@ -109,14 +118,19 @@ const PlacesFormPage = () => {
             <Textarea
               name="description"
               value={description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              placeholder="Describe your place..."
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
+              placeholder="Describe the problem ..."
               className="h-[100px]"
             />
-            <PhotosUploader addedPhotos={addedPhotos} setAddedPhotos={setAddedPhotos} />
+            <PhotosUploader
+              addedPhotos={addedPhotos}
+              setAddedPhotos={setAddedPhotos}
+            />
           </div>
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" className="bg-emerald-700 hover:bg-emerald-500 focus:bg-emerald-500 rounded-full">Save changes</Button>
           </DialogFooter>
         </form>
       </DialogContent>
