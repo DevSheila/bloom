@@ -12,7 +12,7 @@ const UTCDatetime = () => {
       sx={{
         fontWeight: '400',
         fontSize: { xs: '10px', sm: '12px' },
-        color: 'rgb(0, 0, 0)',
+        color: 'rgb(0,0,0)',
         lineHeight: 1,
         paddingRight: '2px',
       }}

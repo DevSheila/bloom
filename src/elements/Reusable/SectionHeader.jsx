@@ -8,7 +8,7 @@ const SectionHeader = ({ title, mb }) => {
       component="h5"
       sx={{
         fontSize: { xs: '12px', sm: '16px', md: '18px' },
-        color: 'rgb(0, 0, 0)',
+        color: 'rgb(0,0,0)',
         fontWeight: '400',
         lineHeight: 1,
         textAlign: 'center',

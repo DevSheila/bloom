@@ -8,7 +8,7 @@ const TemperatureWeatherDetail = (props) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'start',
         textAlign: 'center',
         height: '100%',
       }}
@@ -17,12 +17,10 @@ const TemperatureWeatherDetail = (props) => {
         variant="h3"
         component="h3"
         sx={{
-          fontWeight: '400',
-          fontSize: { xs: '12px', sm: '14px', md: '16px' },
+          fontWeight: '500',
+          fontSize: { xs: '12px', sm: '14px', md: '40px' },
           color: 'black',
           
-          lineHeight: 1,
-          marginBottom: '8px',
         }}
       >
         {Math.round(props.temperature)} °C
@@ -32,12 +30,12 @@ const TemperatureWeatherDetail = (props) => {
         component="h4"
         sx={{
           fontSize: { xs: '10px', sm: '12px', md: '14px' },
-          color: 'rgb(0, 0, 0)',
+          color: 'rgb(0,0,0)',
           lineHeight: 1,
           letterSpacing: { xs: '1px', sm: '0' },
         }}
       >
-        {props.description}
+        {props.description} 
       </Typography>
     </Box>
   );

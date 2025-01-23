@@ -19,15 +19,7 @@ const Details = ({ data }) => {
   if (!noDataProvided)
     content = (
       <>
-        <Grid
-          item
-          xs={4}
-          sx={{
-            height: "80px",
-          }}
-        >
-          <CityDateDetail city={data.city} date={dayMonth} />
-        </Grid>
+
         <Grid
           item
           xs={4}
@@ -39,7 +31,7 @@ const Details = ({ data }) => {
             temperature={data.main.temp}
             description={data.weather[0].description}
           />
-        </Grid>
+        </Grid> 
         <Grid
           item
           xs={4}
@@ -51,6 +43,15 @@ const Details = ({ data }) => {
           }}
         >
           <WeatherIconDetail src={weatherIcon(`${data.weather[0].icon}.png`)} />
+        </Grid>
+        <Grid
+          item
+          xs={4} 
+          sx={{
+            height: "80px",
+          }}
+        >
+          <CityDateDetail city={data.city} date={dayMonth} />
         </Grid>
       </>
     );

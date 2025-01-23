@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowDown, FaSync } from "react-icons/fa"; 
+import { FaArrowDown, FaSync } from "react-icons/fa";
 
 const Tip = () => {
   return (

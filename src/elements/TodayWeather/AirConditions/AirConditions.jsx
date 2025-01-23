@@ -13,7 +13,7 @@ const TodayWeatherAirConditions = ({ data }) => {
     content = (
       <>
         <AirConditionsItem
-          title="Real Feel"
+          title="Temperature"
           value={`${Math.round(data.main.feels_like)} °C`}
           type="temperature"
         />
@@ -36,7 +36,6 @@ const TodayWeatherAirConditions = ({ data }) => {
     );
   return (
     <Layout
-      title="Air Conditions"
       content={content}
       sx={{ marginTop: '1rem' }} 
     />

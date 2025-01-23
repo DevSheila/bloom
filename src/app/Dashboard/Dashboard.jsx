@@ -15,10 +15,9 @@ function Dashboard() {
       <div className="h-screen p-4 sm:ml-64 bg-slate-50">
         <div className=" ">
           <div className="mx-auto max-w-screen-xl px-1 bg-slate-50">
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <Tip />
-            <WeatherForecasting/>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+              <Tip />
+              <WeatherForecasting /> 
             </div>
 
             {/* Header Section */}
