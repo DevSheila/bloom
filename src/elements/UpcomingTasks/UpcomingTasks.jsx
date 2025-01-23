@@ -78,5 +78,5 @@ export function UpcomingTasks() {
       </div>
       <ScrollBar orientation="horizontal" />
     </ScrollArea>
-  );
+  ); 
 }

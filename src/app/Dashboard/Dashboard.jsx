@@ -10,7 +10,7 @@ import WeatherForecasting from "../WeatherForecasting/WeatherForecasting";
 function Dashboard() {
   return (
     <>
-      <SideBar />
+      <SideBar /> 
 
       <div className="h-screen p-4 sm:ml-64 bg-slate-50">
         <div className=" ">
