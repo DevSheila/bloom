@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // ICONS, IMAGES
 import {
+  SlDoc,
   SlEnvolope,
   SlHome,
   SlLogout,
@@ -8,14 +9,14 @@ import {
   SlUser,
 } from "react-icons/sl";
 import { SlLayers } from "react-icons/sl";
-import { SlDoc } from "react-icons/sl";
+// import { SlDoc } from "react-icons/sl";
 import { SlCamera } from "react-icons/sl";
 import whitCurvedImg from "/pricing/white-curved.jpeg";
 // CLERK
 import { UserButton, useUser } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-
+import { PiStethoscopeFill } from "react-icons/pi";
 function SideNavbar() {
   const location = useLocation();
 
@@ -120,9 +121,9 @@ function SideNavbar() {
                 icon: SlLayers,
               },
               {
-                name: "Home",
-                href: "/",
-                icon: SlDoc,
+                name: "Doctor",
+                href: "/places",
+                icon: PiStethoscopeFill,
               },
             ].map((item) => (
               <li key={item.name}>

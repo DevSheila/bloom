@@ -56,7 +56,16 @@ const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
   };
 
   return (
-    <div className="p-4 space-y-4">
+    < >
+      
+      <label className="flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-md border border-dashed border-gray-400 bg-gray-100 p-4 text-gray-600 hover:bg-gray-200 hover:border-gray-500 transition-all duration-200">
+        <input type="file" multiple className="hidden" onChange={uploadPhoto} />
+
+        <SlCloudUpload className="h-8 w-8 text-gray-400" />
+        <span className="mt-2 text-sm font-medium">
+          Drag and drop or click to upload
+        </span>
+      </label>
       {loading ? (
         <div className="flex justify-center items-center h-32">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
@@ -100,15 +109,7 @@ const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
         </ScrollArea>
       )}
 
-      <label className="flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-md border border-dashed border-gray-400 bg-gray-100 p-4 text-gray-600 hover:bg-gray-200 hover:border-gray-500 transition-all duration-200">
-        <input type="file" multiple className="hidden" onChange={uploadPhoto} />
-
-        <SlCloudUpload className="h-8 w-8 text-gray-400" />
-        <span className="mt-2 text-sm font-medium">
-          Drag and drop or click to upload
-        </span>
-      </label>
-    </div>
+    </>
   );
 };
 

@@ -14,6 +14,7 @@ import SpinLoader from "./elements/Loaders/SpinLoader";
 import { useUser } from "@clerk/clerk-react";
 import PlacePage from "./app/PlacePage";
 import PlacesFormPage from "./app/PlacesFormPage";
+import PlacesPage from "./app/PlacesPage";
 
 const PrivateRoute = ({ element }) => {
   const { isLoaded, isSignedIn } = useUser();
@@ -48,6 +49,7 @@ function App() {
             element={<PrivateRoute element={<Dashboard />} />} //Protected route
           />
           <Route path="/place/:id" element={<PlacePage />} />
+          <Route path="/places" element={<PlacesPage />} />
           <Route path="/places/new" element={<PlacesFormPage />} />
           <Route path="*" element={<NotFound />} />
 
