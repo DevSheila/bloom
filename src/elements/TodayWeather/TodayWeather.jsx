@@ -6,10 +6,11 @@ import AirConditions from './AirConditions/AirConditions';
 
 const TodayWeather = ({ data, forecastList }) => {
   return (
-    <Grid container sx={{ padding: '3rem 0rem 0rem' }}>
+    <Grid >
+    {/* <Grid container sx={{ padding: '3rem 0rem 0rem' }}> */}
       <Details data={data} />
       <AirConditions data={data} />
-      <DailyForecast data={data} forecastList={forecastList} />
+      {/* <DailyForecast data={data} forecastList={forecastList} /> */}
     </Grid>
   );
 }; 

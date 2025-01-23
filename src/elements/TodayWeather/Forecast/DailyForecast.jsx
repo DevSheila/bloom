@@ -24,7 +24,6 @@ const DailyForecast = ({ data, forecastList }) => {
           textAlign: 'center',
           lineHeight: 1,
           color: '#04C4E0',
-          fontFamily: 'Roboto Condensed',
           marginBottom: '1rem',
         }}
       >

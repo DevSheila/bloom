@@ -17,11 +17,10 @@ const CityDateDetail = (props) => {
         variant="h3"
         component="h3"
         sx={{
-          fontFamily: 'Poppins',
-          fontWeight: '600',
+          fontWeight: '400',
           fontSize: { xs: '12px', sm: '14px', md: '16px' },
-          color: 'white',
-          textTransform: 'uppercase',
+          color: 'black',
+          
           lineHeight: 1,
           marginBottom: '8px',
         }}
@@ -33,10 +32,9 @@ const CityDateDetail = (props) => {
         component="h4"
         sx={{
           fontSize: { xs: '10px', sm: '12px', md: '14px' },
-          color: 'rgba(255,255,255, .7)',
+          color: 'rgb(0, 0, 0)',
           lineHeight: 1,
           letterSpacing: { xs: '1px', sm: '0' },
-          fontFamily: 'Roboto Condensed',
         }}
       >
         Today {props.date}

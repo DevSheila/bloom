@@ -36,7 +36,6 @@ export default function ErrorBox(props) {
             props.type === 'info'
               ? { xs: '12px', sm: '14px' }
               : { xs: '14px', sm: '16px' },
-          fontFamily: 'Poppins',
           textAlign: 'center',
         }}
       >

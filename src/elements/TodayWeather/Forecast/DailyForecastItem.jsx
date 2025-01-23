@@ -22,10 +22,9 @@ const DailyForecastItem = (props) => {
         sx={{
           fontWeight: '400',
           fontSize: { xs: '10px', sm: '12px' },
-          color: 'rgba(255, 255, 255, .7)',
+          color: 'rgb(0, 0, 0)',
           lineHeight: 1,
           padding: '4px',
-          fontFamily: 'Poppins',
         }}
       >
         {props.item.time}
@@ -34,7 +33,7 @@ const DailyForecastItem = (props) => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          color: 'white',
+          color: 'black',
           padding: '4px',
         }}
       >
@@ -57,13 +56,12 @@ const DailyForecastItem = (props) => {
         variant="h3"
         component="h3"
         sx={{
-          fontWeight: '600',
+          fontWeight: '400',
           fontSize: { xs: '12px', sm: '14px' },
-          color: 'white',
-          textTransform: 'uppercase',
+          color: 'black',
+          
           lineHeight: 1,
           marginBottom: { xs: '8px', md: '0' },
-          fontFamily: 'Poppins',
         }}
       >
         {props.item.temperature}

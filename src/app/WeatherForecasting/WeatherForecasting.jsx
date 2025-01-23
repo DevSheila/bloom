@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
-import { Box, Container, Grid, Link, SvgIcon, Typography } from '@mui/material';
-import { fetchWeatherData } from '@/api/OpenWeatherService';
-import LoadingBox from '@/elements/Reusable/LoadingBox';
-import UTCDatetime from '@/elements/Reusable/UTCDatetime';
-import Search from '@/elements/Search/Search';
-import TodayWeather from '@/elements/TodayWeather/TodayWeather';
-import WeeklyForecast from '@/elements/WeeklyForecast/WeeklyForecast';
-import ErrorBox from '@/elements/Reusable/ErrorBox';
-import { ALL_DESCRIPTIONS } from '@/utilities/DateConstants';
-import { transformDateFormat } from '@/utilities/DatetimeUtils';
+import React, { useState } from "react";
+import { fetchWeatherData } from "@/api/OpenWeatherService";
+import LoadingBox from "@/elements/Reusable/LoadingBox";
+import UTCDatetime from "@/elements/Reusable/UTCDatetime";
+import Search from "@/elements/Search/Search";
+import TodayWeather from "@/elements/TodayWeather/TodayWeather";
+import ErrorBox from "@/elements/Reusable/ErrorBox";
+import { ALL_DESCRIPTIONS } from "@/utilities/DateConstants";
+import { transformDateFormat } from "@/utilities/DatetimeUtils";
 import {
-    getTodayForecastWeather,
-    getWeekForecastWeather, 
-  } from '../../utilities/DataUtils';
-import './WeatherForecasting.css';
+  getTodayForecastWeather,
+  getWeekForecastWeather,
+} from "../../utilities/DataUtils";
+import { FaMapPin, FaSearch } from "react-icons/fa";
 
 function WeatherForecasting() {
   const [todayWeather, setTodayWeather] = useState(null);
@@ -21,9 +19,14 @@ function WeatherForecasting() {
   const [weekForecast, setWeekForecast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false); // State to manage Search visibility
+
+  const toggleSearchVisibility = () => {
+    setIsSearchVisible((prevState) => !prevState);
+  };
 
   const searchChangeHandler = async (enteredData) => {
-    const [latitude, longitude] = enteredData.value.split(' ');
+    const [latitude, longitude] = enteredData.value.split(" ");
 
     setIsLoading(true);
 
@@ -50,7 +53,10 @@ function WeatherForecasting() {
       setWeekForecast({
         city: enteredData.label,
         list: all_week_forecasts_list,
-      }); 
+      });
+
+      // Hide the search box after a location is set
+      setIsSearchVisible(false);
     } catch (error) {
       setError(true);
     }
@@ -59,53 +65,22 @@ function WeatherForecasting() {
   };
 
   let appContent = (
-    <Box
-      xs={12}
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{
-        width: '100%',
-        minHeight: '500px',
-      }}
-    >
-      <SvgIcon
-        // component={Logo}
-        inheritViewBox
-        sx={{ fontSize: { xs: '100px', sm: '120px', md: '140px' } }}
-      />
-      <Typography
-        variant="h4"
-        component="h4"
-        sx={{
-          fontSize: { xs: '12px', sm: '14px' },
-          color: 'rgba(255,255,255, .85)',
-          fontFamily: 'Poppins',
-          textAlign: 'center',
-          margin: '2rem 0',
-          maxWidth: '80%',
-          lineHeight: '22px',
-        }}
-      >
+    <div className="flex flex-col items-center justify-center w-full ">
+      <div className="text-[100px] sm:text-[120px] md:text-[140px] text-black opacity-85">
+        {/* Add logo or icon here */}
+      </div>
+      <p className="text-center text-black text-opacity-85  text-sm sm:text-base mt-8 mx-auto max-w-[80%] leading-[22px]">
         Explore current weather data and 6-day forecast of more than 200,000
         cities!
-      </Typography>
-    </Box>
+      </p>
+    </div>
   );
 
   if (todayWeather && todayForecast && weekForecast) {
     appContent = (
-      <React.Fragment>
-        <Grid item xs={12} md={todayWeather ? 6 : 12}>
-          <Grid item xs={12}>
-            <TodayWeather data={todayWeather} forecastList={todayForecast} />
-          </Grid>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <WeeklyForecast data={weekForecast} />
-        </Grid>
-      </React.Fragment>
+      <div>
+        <TodayWeather data={todayWeather} forecastList={todayForecast} />
+      </div>
     );
   }
 
@@ -121,81 +96,30 @@ function WeatherForecasting() {
 
   if (isLoading) {
     appContent = (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-          minHeight: '500px',
-        }}
-      >
+      <div className="flex justify-center items-center w-full ">
         <LoadingBox value="1">
-          <Typography
-            variant="h3"
-            component="h3"
-            sx={{
-              fontSize: { xs: '10px', sm: '12px' },
-              color: 'rgba(255, 255, 255, .8)',
-              lineHeight: 1,
-              fontFamily: 'Poppins',
-            }}
-          >
+          <p className="text-black text-opacity-80 text-xs sm:text-sm  leading-none">
             Loading...
-          </Typography>
+          </p>
         </LoadingBox>
-      </Box>
+      </div>
     );
   }
 
   return (
-    <Container
-      sx={{
-        maxWidth: { xs: '95%', sm: '80%', md: '1100px' },
-        width: '100%',
-        height: '100%',
-        margin: '0 auto',
-        padding: '1rem 0 3rem',
-        marginBottom: '1rem',
-        borderRadius: {
-          xs: 'none',
-          sm: '0 0 1rem 1rem',
-        },
-        boxShadow: {
-          xs: 'none',
-          sm: 'rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px',
-        },
-      }}
-    >
-      <Grid container columnSpacing={2}>
-        <Grid item xs={12}>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            sx={{
-              width: '100%',
-              marginBottom: '1rem',
-            }}
-          >
-            <Box
-              component="img"
-              sx={{
-                height: { xs: '16px', sm: '22px', md: '26px' },
-                width: 'auto',
-              }}
-              alt="logo"
-              // src={Logo}
-            />
+    <div className="container mx-auto rounded-xl bg-slate-100 relative">
+      <div
+        className="p-2 text-emerald-400  rounded-full  absolute top-4 right-4 hover:text-emerald-600"
+        onClick={toggleSearchVisibility}
+      >
+        <FaSearch />
+      </div>
+      <div className="grid grid-cols-1 gap-4 m-2">
+        {isSearchVisible && <Search onSearchChange={searchChangeHandler} />}
+      </div>
 
-            <UTCDatetime />
-
-          </Box>
-          <Search onSearchChange={searchChangeHandler} />
-        </Grid>
-        {appContent}
-      </Grid>
-    </Container>
+      {appContent}
+    </div>
   );
 }
 

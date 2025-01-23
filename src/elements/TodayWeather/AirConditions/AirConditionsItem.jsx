@@ -49,7 +49,7 @@ const AirConditionsItem = (props) => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            color: 'rgba(255, 255, 255, .7)',
+            color: 'rgb(0, 0, 0)',
             padding: 0,
           }}
         >
@@ -57,7 +57,7 @@ const AirConditionsItem = (props) => {
         </Box>
         <Box
           sx={{
-            color: 'rgba(255, 255, 255, .7)',
+            color: 'rgb(0, 0, 0)',
             fontSize: { xs: '10px', sm: '12px', md: '14px' },
             paddingLeft: { xs: '0px', sm: '4px', md: '6px' },
             paddingTop: { xs: '2px', sm: '0px' },
@@ -78,10 +78,9 @@ const AirConditionsItem = (props) => {
       >
         <Box
           sx={{
-            fontFamily: 'Poppins',
-            fontWeight: '600',
+            fontWeight: '400',
             fontSize: { xs: '12px', sm: '14px', md: '16px' },
-            color: 'white',
+            color: 'black',
             lineHeight: 1,
           }}
         >

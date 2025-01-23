@@ -1,12 +1,13 @@
 const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
 
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5';
-const WEATHER_API_KEY = 'f7211907720c4a67cf262e0b5357f9cb';
+const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const GEO_API_OPTIONS_KEY = import.meta.env.VITE_GEO_API_OPTIONS_KEY;
 
-const GEO_API_OPTIONS = {
+const GEO_API_OPTIONS = { 
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '4f0dcce84bmshac9e329bd55fd14p17ec6fjsnff18c2e61917',
+    'X-RapidAPI-Key': `${GEO_API_OPTIONS_KEY}`,
     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
   },
 };

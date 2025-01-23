@@ -36,10 +36,9 @@ const TodayWeatherAirConditions = ({ data }) => {
     );
   return (
     <Layout
-      title="AIR CONDITIONS"
+      title="Air Conditions"
       content={content}
-      mb="1rem"
-      sx={{ marginTop: '2.9rem' }} 
+      sx={{ marginTop: '1rem' }} 
     />
   );
 };
