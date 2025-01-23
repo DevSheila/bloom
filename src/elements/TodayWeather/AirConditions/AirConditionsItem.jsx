@@ -32,7 +32,7 @@ const AirConditionsItem = (props) => {
         item
         xs={12}
         display="flex"
-        alignItems="start"
+        alignItems="center"
         justifyContent="center"
         sx={{
           width: '100%',
