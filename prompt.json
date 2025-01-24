@@ -1,0 +1,100 @@
+{
+    "user_id":"AJdjhs6GHsmn8erBure",
+    "user_query":"My plant seems to be wilting.Can you help me out ? ",
+    "images": [
+        "https://example.com/fungicide-spray.jpg",
+        "https://example.com/fungicide-spray.jpg",
+        "https://example.com/fungicide-spray.jpg",
+        "https://example.com/fungicide-spray.jpg"
+
+    ],
+    "overview": "The plant appears to be suffering from a fungal infection, causing yellow spots on the leaves.",
+    "symptoms": [
+      "Yellow spots on leaves",
+      "Wilting despite regular watering"
+    ],
+    "causes": [
+      "Overwatering causing fungal growth",
+      "Poor drainage in the soil"
+    ],
+    "treatment_and_management": [
+      {
+        "recommendation": "Apply a fungicide spray specifically for leaf spot diseases.",
+        "image_link": "https://example.com/fungicide-spray.jpg"
+      },
+      {
+        "recommendation": "Reduce watering to prevent further fungal growth.",
+        "image_link": null
+      }
+    ],
+    "schedule_for_recovery": [
+      {
+        "day": 1,
+        "actions": [
+          {
+            "category": "Treatment",
+            "description": "Apply fungicide spray to affected areas."
+          },
+          {
+            "category": "Pruning",
+            "description": "Trim affected leaves to reduce further infection."
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "actions": [
+          {
+            "category": "Monitoring",
+            "description": "Check soil moisture and ensure proper drainage."
+          },
+          {
+            "category": "Treatment",
+            "description": "Reapply fungicide if symptoms persist."
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "actions": [
+          {
+            "category": "Observation",
+            "description": "Inspect the plant for new symptoms."
+          },
+          {
+            "category": "Prevention",
+            "description": "Mulch around the base to retain moisture and regulate temperature."
+          }
+        ]
+      }
+    ],
+    "prevention": [
+      "Avoid overwatering and ensure proper drainage.",
+      "Monitor plants regularly for early signs of fungal infections.",
+      "Use fungicide preventatively during humid weather."
+    ],
+    "environmental_conditions": {
+      "temperature": {
+        "ideal_range": "18°C to 25°C",
+        "description": "The plant thrives in moderate temperatures, avoiding extreme heat or cold."
+      },
+      "light": {
+        "ideal_range": "Bright, indirect sunlight",
+        "description": "The plant needs plenty of light but should be protected from direct sunlight to avoid leaf burn."
+      },
+      "humidity": {
+        "ideal_range": "50% to 60%",
+        "description": "Moderate humidity levels are necessary for healthy growth. Mist the plant or use a humidifier if the air is too dry."
+      },
+      "soil_type": {
+        "ideal": "Well-draining, loamy soil",
+        "description": "Ensure the plant is planted in soil that drains well to prevent root rot."
+      },
+      "watering": {
+        "ideal": "Water when the top 2 inches of soil are dry",
+        "description": "Water thoroughly but allow the soil to dry out between watering to prevent fungal growth."
+      }
+    },
+    "conclusion": "By following these steps, the plant should recover within 1–2 weeks. Continue monitoring and adapt care as necessary to ensure long-term health."
+  }
+  

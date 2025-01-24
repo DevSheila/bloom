@@ -172,13 +172,11 @@ function SideNavbar() {
                 </div>
                 <div className="flex justify-start flex-col items-start">
                   <p className="cursor-pointer text-sm leading-5 text-gray-900 capitalize ">
-                    {/* {user.firstName ||"FirstName"} {user.lastName || "LastName"}  */}{" "}
-                    First Name
+                    {user.firstName ||"FirstName"} {user.lastName || "LastName"} {" "}
                   </p>
                   <p className="cursor-pointer text-xs leading-3 text-gray-700">
-                    {/* {user?.emailAddresses?.[0]?.emailAddress ||
-                      "No email available"} */}
-                    Email
+                    {user?.emailAddresses?.[0]?.emailAddress ||
+                      "No email available"}
                   </p>
                 </div>
               </div>
