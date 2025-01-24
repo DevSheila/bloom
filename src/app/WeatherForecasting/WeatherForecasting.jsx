@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchWeatherData } from "@/api/OpenWeatherService";
 import LoadingBox from "@/elements/Reusable/LoadingBox";
 import UTCDatetime from "@/elements/Reusable/UTCDatetime";
@@ -21,6 +21,7 @@ function WeatherForecasting() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false); // State to manage Search visibility
+  const [userCity, setUserCity] = useState(null); // State to store the user's city name
 
   const toggleSearchVisibility = () => {
     setIsSearchVisible((prevState) => !prevState);
@@ -64,6 +65,71 @@ function WeatherForecasting() {
 
     setIsLoading(false);
   };
+
+  const getUserLocation = async () => {
+    if (navigator.geolocation) {
+      try {
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Fetch the city name and weather data asynchronously
+        // let city = await fetchCityName(latitude, longitude);
+        // setUserCity(city);
+        await fetchWeatherDataForLocation(latitude, longitude);
+      } catch (error) {
+        console.error("Error fetching geolocation: ", error);
+        setError(true);
+      }
+    } else {
+      setError(true);
+      console.log("Geolocation is not supported by this browser.");
+    }
+  };
+  useEffect(() => {
+    getUserLocation(); // Call getUserLocation to get the user's location on component mount
+  }, []);
+    // Fetch weather data for the user's location
+    const fetchWeatherDataForLocation = async (latitude, longitude) => {
+      setIsLoading(true);
+  
+      const currentDate = transformDateFormat();
+      const date = new Date();
+      let dt_now = Math.floor(date.getTime() / 1000);
+  
+      try {
+        const [todayWeatherResponse, weekForecastResponse] =
+          await fetchWeatherData(latitude, longitude);
+        const all_today_forecasts_list = getTodayForecastWeather(
+          weekForecastResponse,
+          currentDate,
+          dt_now
+        );
+  
+        const all_week_forecasts_list = getWeekForecastWeather(
+          weekForecastResponse,
+          ALL_DESCRIPTIONS
+        );
+  
+        setTodayForecast([...all_today_forecasts_list]);
+        setTodayWeather({
+          city: userCity, // Use dynamic city name
+          ...todayWeatherResponse,
+        });
+        setWeekForecast({
+          city: userCity, // Use dynamic city name
+          list: all_week_forecasts_list,
+        });
+      } catch (error) {
+        setError(true);
+      }
+  
+      setIsLoading(false);
+    };
+  
 
   let appContent = (
     <div className="flex flex-col items-center justify-center w-full ">
