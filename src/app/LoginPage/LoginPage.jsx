@@ -2,9 +2,12 @@ import { LoginForm } from "@/components/login-form";
 import React from "react";
 import { SignIn as ClerkSignIn, useUser } from "@clerk/clerk-react";
 import SpinLoader from "@/elements/Loaders/SpinLoader";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const { isLoaded } = useUser();
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   if (!isLoaded) {
     return <SpinLoader />;
@@ -58,14 +61,20 @@ function LoginPage() {
                   Welcome to Bloom
                 </h1>
 
-                <p class="mt-4 leading-relaxed text-emerald-500">
+                <p class="mt-4 leading-relaxed ">
                   Nurture your plants to perfection with Bloom. AI-driven
                   advice, diagnoses, and care plans to help your plants thrive
                   and bloom like never before.
                 </p>
               </div>
 
-              <ClerkSignIn />
+              <ClerkSignIn
+                afterSignInUrl={from}
+                redirectUrl={from}
+                routing="path"
+                path="/login"
+                signUpUrl="/login"
+              />
             </div>
           </main>
         </div>

@@ -92,44 +92,43 @@ function WeatherForecasting() {
   useEffect(() => {
     getUserLocation(); // Call getUserLocation to get the user's location on component mount
   }, []);
-    // Fetch weather data for the user's location
-    const fetchWeatherDataForLocation = async (latitude, longitude) => {
-      setIsLoading(true);
-  
-      const currentDate = transformDateFormat();
-      const date = new Date();
-      let dt_now = Math.floor(date.getTime() / 1000);
-  
-      try {
-        const [todayWeatherResponse, weekForecastResponse] =
-          await fetchWeatherData(latitude, longitude);
-        const all_today_forecasts_list = getTodayForecastWeather(
-          weekForecastResponse,
-          currentDate,
-          dt_now
-        );
-  
-        const all_week_forecasts_list = getWeekForecastWeather(
-          weekForecastResponse,
-          ALL_DESCRIPTIONS
-        );
-  
-        setTodayForecast([...all_today_forecasts_list]);
-        setTodayWeather({
-          city: userCity, // Use dynamic city name
-          ...todayWeatherResponse,
-        });
-        setWeekForecast({
-          city: userCity, // Use dynamic city name
-          list: all_week_forecasts_list,
-        });
-      } catch (error) {
-        setError(true);
-      }
-  
-      setIsLoading(false);
-    };
-  
+  // Fetch weather data for the user's location
+  const fetchWeatherDataForLocation = async (latitude, longitude) => {
+    setIsLoading(true);
+
+    const currentDate = transformDateFormat();
+    const date = new Date();
+    let dt_now = Math.floor(date.getTime() / 1000);
+
+    try {
+      const [todayWeatherResponse, weekForecastResponse] =
+        await fetchWeatherData(latitude, longitude);
+      const all_today_forecasts_list = getTodayForecastWeather(
+        weekForecastResponse,
+        currentDate,
+        dt_now
+      );
+
+      const all_week_forecasts_list = getWeekForecastWeather(
+        weekForecastResponse,
+        ALL_DESCRIPTIONS
+      );
+
+      setTodayForecast([...all_today_forecasts_list]);
+      setTodayWeather({
+        city: userCity, // Use dynamic city name
+        ...todayWeatherResponse,
+      });
+      setWeekForecast({
+        city: userCity, // Use dynamic city name
+        list: all_week_forecasts_list,
+      });
+    } catch (error) {
+      setError(true);
+    }
+
+    setIsLoading(false);
+  };
 
   let appContent = (
     <div className="flex flex-col items-center justify-center w-full ">
@@ -143,7 +142,7 @@ function WeatherForecasting() {
       >
         <path
           d="M521 692s30-143 68-209 97-249 362-232 284 108 327 209 108 86 133 139 13 66 13 66Z"
-         fill="#f8f8ff"
+          fill="#f8f8ff"
           transform="translate(-470.92 -193.2)"
         ></path>
         <path
@@ -176,13 +175,13 @@ function WeatherForecasting() {
           fill="#a9d9c8"
           transform="translate(-470.92 -193.2)"
         ></path>
-        <circle cx="315.12" cy="218.48" r="23.87"  fill="#fff"></circle>
-        <circle cx="234.38" cy="217.9" r="23.87"  fill="#fff"></circle>
-        <circle cx="275.64" cy="216.88" r="32.15"  fill="#fff"></circle>
-        <circle cx="617.74" cy="165.1" r="23.87"  fill="#fff"></circle>
-        <circle cx="658.99" cy="164.09" r="32.15"  fill="#fff"></circle>
+        <circle cx="315.12" cy="218.48" r="23.87" fill="#fff"></circle>
+        <circle cx="234.38" cy="217.9" r="23.87" fill="#fff"></circle>
+        <circle cx="275.64" cy="216.88" r="32.15" fill="#fff"></circle>
+        <circle cx="617.74" cy="165.1" r="23.87" fill="#fff"></circle>
+        <circle cx="658.99" cy="164.09" r="32.15" fill="#fff"></circle>
       </svg>
-            {/* <p className=" hidden sm:block mb-1"> */}
+      {/* <p className=" hidden sm:block mb-1"> */}
       <p className="text-center text-opacity-85   sm:text-base mt-8 mx-auto max-w-[80%] leading-[22px] text-base text-gray-500 dark:text-gray-400">
         Explore current weather data and 6-day forecast of more than 200,000
         cities!
@@ -210,11 +209,9 @@ function WeatherForecasting() {
 
   if (isLoading) {
     appContent = (
-
-          <div className="flex items-center justify-center m-2">
-          <div className="animate-spin rounded-full border-t-4 h-28 w-28 border-green-700 border-solid border-opacity-50"></div>
-        </div>
-
+      <div className="flex items-center justify-center m-2">
+        <div className="animate-spin rounded-full border-t-4 h-28 w-28 border-green-700 border-solid border-opacity-50"></div>
+      </div>
     );
   }
 

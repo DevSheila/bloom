@@ -3,8 +3,9 @@ import React from "react";
 import App from "./App.jsx";
 import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
-// Import your clerk publishable key
+
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
@@ -18,7 +19,9 @@ createRoot(document.getElementById("root")).render(
       afterSignOutUrl="/"
       onError={(err) => console.error("Clerk Error:", err)}
     >
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ClerkProvider>
   </React.StrictMode>
 );

@@ -33,6 +33,9 @@ function SideNavbar() {
   const closeSidebar = () => {
     setIsOpen(false); // Close sidebar
   };
+  useEffect(() => {
+    console.log("user",user)
+  },[user])
   return (
     <>
       <div className="flex items-center justify-start rtl:justify-end sm:hidden bg-transparent py-2 bg-slate-50">
@@ -172,13 +175,11 @@ function SideNavbar() {
                 </div>
                 <div className="flex justify-start flex-col items-start">
                   <p className="cursor-pointer text-sm leading-5 text-gray-900 capitalize ">
-                    {/* {user.firstName ||"FirstName"} {user.lastName || "LastName"}  */}{" "}
-                    First Name
+                    {user.firstName ||"FirstName"} {user.lastName || "LastName"} {" "}
                   </p>
                   <p className="cursor-pointer text-xs leading-3 text-gray-700">
-                    {/* {user?.emailAddresses?.[0]?.emailAddress ||
-                      "No email available"} */}
-                    Email
+                    {user?.emailAddresses?.[0]?.emailAddress ||
+                      "No email available"}
                   </p>
                 </div>
               </div>
