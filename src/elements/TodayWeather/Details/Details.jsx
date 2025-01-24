@@ -51,7 +51,7 @@ const Details = ({ data }) => {
             height: "80px",
           }}
         >
-          <CityDateDetail city={data.city} date={dayMonth} />
+          <CityDateDetail city={data.city} name={data.name} country={data.sys.country} date={dayMonth} />
         </Grid>
       </>
     );

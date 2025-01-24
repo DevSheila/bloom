@@ -49,7 +49,7 @@ const CityDateDetail = (props) => {
             alignItems: "center",
           }}
         >
-          {props.city}
+          {props.city || props.name +','+props.country}
         </Box>
       </Grid>
       <Typography
