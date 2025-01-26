@@ -3,26 +3,10 @@ import axiosInstance from "@/utilities/axios";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { FaCheckCircle, FaRegStar, FaStar, FaTrash } from "react-icons/fa";
 import { SlCloudUpload } from "react-icons/sl";
+import axios from "axios"; 
 
 const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
-  const [photoLink, setphotoLink] = useState("");
   const [loading, setLoading] = useState(false); // Loading state
-
-  const addPhotoByLink = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const { data: filename } = await axiosInstance.post("/upload-by-link", {
-        link: photoLink,
-      });
-      setAddedPhotos((prev) => [...prev, filename]);
-      setphotoLink("");
-    } catch (error) {
-      console.error("Error uploading photo by link", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const uploadPhoto = async (e) => {
     const files = e.target.files;
@@ -32,9 +16,10 @@ const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
       data.append("photos", files[i]);
     }
     try {
-      const { data: filenames } = await axiosInstance.post("/upload", data, {
+      const { data: filenames } = await axios.post(`${import.meta.env.VITE_OTHER_BASE_URL}/upload`, data, {
         headers: { "Content-type": "multipart/form-data" },
       });
+      console.log("filenames", filenames);
       setAddedPhotos((prev) => [...prev, ...filenames]);
     } catch (error) {
       console.error("Error uploading photos", error);
@@ -43,6 +28,8 @@ const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
     }
   };
 
+  
+  
   const removePhoto = (filename) => {
     setAddedPhotos([...addedPhotos.filter((photo) => photo !== filename)]);
   };

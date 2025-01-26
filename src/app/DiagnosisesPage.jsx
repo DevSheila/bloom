@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import PlaceCard from "@/elements/PlaceCard";
 import SpinLoader from "@/elements/Loaders/SpinLoader";
-import axiosInstance from "@/utilities/axios";
 import SideNavbar from "@/elements/SideBar/SideBar";
-import { Button } from "@/components/ui/button";
-import { BsPlusLg } from "react-icons/bs";
-import PlacesFormPage from "./PlacesFormPage";
 
-const PlacesPage = () => {
-  const [places, setPlaces] = useState([]);
+import DiagnosisFormPage from "./DiagnosisFormPage";
+import { getDiagnosisDataByUserId } from "@/services/diagnoseService";
+import { useAuth } from "@/context/AuthContext";
+
+const DiagnosisesPage = () => {
+  const [diagnosis, setDiagnosis] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { user, isSignedIn } = useAuth();
 
-  const getPlaces = async () => {
-    const { data } = await axiosInstance.get("/places");
-    setPlaces(data.places);
-    setLoading(false);
-  };
+
   useEffect(() => {
-    getPlaces();
-  }, []);
+    if (user) {
+      getDiagnosisDataByUserId(user?.id).then((records) => {
+        setDiagnosis(records);
+        setLoading(false);
+      });
+    }
+  }, [user]);
 
   if (loading) {
     return <SpinLoader />;
@@ -39,7 +41,7 @@ const PlacesPage = () => {
                 </p>
               </div>
 
-              <PlacesFormPage />
+              <DiagnosisFormPage />
             </div>
 
             <p className="text-base text-gray-500 dark:text-gray-400 hidden sm:block mb-1">
@@ -47,9 +49,9 @@ const PlacesPage = () => {
               image to the plant health page.
             </p>
             <div className="grid grid-cols-1 justify-items-center px-1 md:grid-cols-2 md:gap-0 lg:grid-cols-3 lg:gap-2 xl:grid-cols-4 xl:gap-10">
-              {places.length > 0 ? (
-                places.map((place) => (
-                  <PlaceCard place={place} key={place._id} />
+              {diagnosis.length > 0 ? (
+                diagnosis.map((diagnosis) => (
+                  <PlaceCard diagnosis={diagnosis} key={diagnosis.id} />
                 ))
               ) : (
                 <div className="absolute left-1/2 right-1/2 top-40 flex  w-full -translate-x-1/2 transform flex-col p-10  md:w-1/2">
@@ -91,4 +93,4 @@ const PlacesPage = () => {
   );
 };
 
-export default PlacesPage;
+export default DiagnosisesPage;

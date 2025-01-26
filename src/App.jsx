@@ -12,9 +12,8 @@ import Dashboard from "./app/Dashboard/Dashboard";
 import LandingPage from "./app/LandingPage/LandingPage";
 import SpinLoader from "./elements/Loaders/SpinLoader";
 import { useUser } from "@clerk/clerk-react";
-import PlacePage from "./app/PlacePage";
-import PlacesFormPage from "./app/PlacesFormPage";
-import PlacesPage from "./app/PlacesPage";
+import DiagnosisPage from "./app/DiagnosisPage";
+import DiagnosisesPage from "./app/DiagnosisesPage";
 
 const PrivateRoute = ({ element }) => {
   const { isLoaded, isSignedIn } = useUser();
@@ -48,9 +47,8 @@ function App() {
             path="/dashboard"
             element={<PrivateRoute element={<Dashboard />} />} //Protected route
           />
-          <Route path="/place/:id" element={<PlacePage />} />
-          <Route path="/places" element={<PlacesPage />} />
-          <Route path="/places/new" element={<PlacesFormPage />} />
+          <Route path="/diagnosis/:id" element={<DiagnosisPage />} />
+          <Route path="/diagnosis" element={<DiagnosisesPage />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>

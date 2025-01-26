@@ -33,9 +33,7 @@ function SideNavbar() {
   const closeSidebar = () => {
     setIsOpen(false); // Close sidebar
   };
-  useEffect(() => {
-    console.log("user",user)
-  },[user])
+
   return (
     <>
       <div className="flex items-center justify-start rtl:justify-end sm:hidden bg-transparent py-2 bg-slate-50">
@@ -125,7 +123,7 @@ function SideNavbar() {
               },
               {
                 name: "Doctor",
-                href: "/places",
+                href: "/diagnosis",
                 icon: PiStethoscopeFill,
               },
             ].map((item) => (
