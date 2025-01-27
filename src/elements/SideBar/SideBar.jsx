@@ -36,7 +36,7 @@ function SideNavbar() {
 
   return (
     <>
-      <div className="flex items-center justify-start rtl:justify-end sm:hidden bg-transparent py-2 bg-slate-50">
+      <div className="flex items-center justify-start rtl:justify-end sm:hidden bg-transparent py-2 bg-slate-100">
         <button
           onClick={toggleSidebar} // Add click event to toggle sidebar
           data-drawer-target="logo-sideNavbar"
