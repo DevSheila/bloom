@@ -36,6 +36,125 @@ function DiagnosisPage() {
   if (!diagnosis) {
     return null;
   }
+  const apiData =  [
+    {
+      "day": "2023-10-20",
+      "actions": [
+        {
+          "category": "Treatment",
+          "description": "Apply fungicide spray to affected areas."
+        },
+        {
+          "category": "Pruning",
+          "description": "Trim affected leaves to reduce further infection."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-21",
+      "actions": [
+        {
+          "category": "Monitoring",
+          "description": "Check soil moisture and ensure proper drainage."
+        },
+        {
+          "category": "Treatment",
+          "description": "Reapply fungicide if symptoms persist."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-22",
+      "actions": [
+        {
+          "category": "Observation",
+          "description": "Inspect the plant for new symptoms."
+        },
+        {
+          "category": "Prevention",
+          "description": "Mulch around the base to retain moisture and regulate temperature."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-23",
+      "actions": [
+        {
+          "category": "Treatment",
+          "description": "Apply fungicide spray to affected areas."
+        },
+        {
+          "category": "Pruning",
+          "description": "Trim affected leaves to reduce further infection."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-24",
+      "actions": [
+        {
+          "category": "Monitoring",
+          "description": "Check soil moisture and ensure proper drainage."
+        },
+        {
+          "category": "Treatment",
+          "description": "Reapply fungicide if symptoms persist."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-25",
+      "actions": [
+        {
+          "category": "Observation",
+          "description": "Inspect the plant for new symptoms."
+        },
+        {
+          "category": "Prevention",
+          "description": "Mulch around the base to retain moisture and regulate temperature."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-28",
+      "actions": [
+        {
+          "category": "Treatment",
+          "description": "Apply fungicide spray to affected areas."
+        },
+        {
+          "category": "Pruning",
+          "description": "Trim affected leaves to reduce further infection."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-29",
+      "actions": [
+        {
+          "category": "Monitoring",
+          "description": "Check soil moisture and ensure proper drainage."
+        },
+        {
+          "category": "Treatment",
+          "description": "Reapply fungicide if symptoms persist."
+        }
+      ]
+    },
+    {
+      "day": "2023-10-30",
+      "actions": [
+        {
+          "category": "Observation",
+          "description": "Inspect the plant for new symptoms."
+        },
+        {
+          "category": "Prevention",
+          "description": "Mulch around the base to retain moisture and regulate temperature."
+        }
+      ]
+    }
+  ];
 
   // Icons mapping
   const conditionIcons = {
@@ -194,6 +313,7 @@ function DiagnosisPage() {
                   </h2>
                   <div>
                     <PlantSchedule
+                      // scheduleData={apiData}
                       scheduleData={diagnosis.schedule_for_recovery}
                     />
                   </div>
