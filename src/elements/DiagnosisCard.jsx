@@ -37,15 +37,13 @@ const DiagnosisCard = ({ diagnosis }) => {
             )}
           </div>
 
-          <div class="mt-4 flex items-start justify-between">
-            <div class="">
-              <span className="font-semibold">{plant_name} </span>
-              <h3 className="truncate text-sm text-gray-500">
+            <div >
+              <span className=" font-semibold line-clamp-1">{plant_name} </span>
+              <h3 className=" text-sm text-gray-500 line-clamp-1 pt-1">
                 {diagnosis_title}
               </h3>
-              <p className="text-xs text-gray-400">{formattedDate}</p>
+              <p className=" text-xs text-gray-400 line-clamp-1 pt-1">{formattedDate}</p>
             </div>
-          </div>
         </article>
       </Link>
     </>
