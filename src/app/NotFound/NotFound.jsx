@@ -17,10 +17,10 @@ function NotFound() {
           <p className="mt-4 text-gray-500">
             This page has wilted away—let’s get you back to greener pastures 🌿.
           </p>
-
+ 
           <a
             href="/"
-            class="mt-6 inline-block rounded bg-emerald-600 px-5 py-3 text-sm font-medium text-white hover:bg-emerald-800 focus:outline-none focus:ring"
+            class="mt-6 inline-block rounded-full bg-emerald-700 px-5 py-3 text-sm font-medium text-white hover:bg-emerald-500 focus:bg-emerald-500 focus:outline-none focus:ring"
           >
             Go Back Home
           </a>

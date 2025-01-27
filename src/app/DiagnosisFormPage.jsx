@@ -113,7 +113,7 @@ const DiagnosisFormPage = () => {
         <div className="ml-2">
           <Button
             size="sm"
-            className="flex items-center gap-2 p-1 bg-emerald-700 hover:bg-emerald-500 focus:bg-emerald-500 border-primary rounded-full text-white text-sm"
+            className="flex items-center gap-2 p-2 bg-emerald-700 hover:bg-emerald-500 focus:bg-emerald-500 border-primary rounded-full text-white text-sm"
           >
             <BsPlusLg className="h-5 w-5 text-white" />{" "}
             <span className="hidden md:block"> Start a Diagnosis </span>
