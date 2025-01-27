@@ -34,7 +34,7 @@ function DiagnosisGallery({ diagnosis }) {
                   onClick={() => setActiveImage(image)} // Update active image on click
                   className={`flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 ${
                     activeImage === image
-                      ? "border-gray-900"
+                      ? "border-emerald-600"
                       : "border-transparent"
                   } text-center`}
                 >

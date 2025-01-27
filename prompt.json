@@ -29,7 +29,7 @@
     ],
     "schedule_for_recovery": [
       {
-        "day": 1,
+        "day": "2023-10-23",
         "actions": [
           {
             "category": "Treatment",
@@ -42,7 +42,7 @@
         ]
       },
       {
-        "day": 3,
+        "day": "2023-10-24",
         "actions": [
           {
             "category": "Monitoring",
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "day": 7,
+        "day": "2023-10-25",
         "actions": [
           {
             "category": "Observation",

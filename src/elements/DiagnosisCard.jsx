@@ -21,9 +21,7 @@ const DiagnosisCard = ({ diagnosis }) => {
 
   const formattedDate = formatDate(createdAt);
 
-  useEffect(() => {
-    console.log("createdAt", createdAt);
-  }, []);
+
   return (
     <>
       <Link to={`/diagnosis/${id}`} className=" flex flex-col md:m-2 xl:m-0">
