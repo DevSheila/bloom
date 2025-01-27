@@ -48,6 +48,8 @@ function Dashboard() {
 
             {/* Upcoming Tasks Component */}
             <UpcomingTasks />
+
+
           </div>
         </div>
       </div>

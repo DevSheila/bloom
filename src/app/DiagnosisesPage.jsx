@@ -51,7 +51,7 @@ const DiagnosisesPage = () => {
 
             <section>
               <div class="mx-auto max-w-screen-xl">
-                <div class="grid grid-cols-2 gap-6 lg:mt-16 lg:grid-cols-4 lg:gap-4">
+                <div class="grid grid-cols-2 gap-6 lg:mt-4 lg:grid-cols-4 lg:gap-4">
 
                 {diagnosis.length > 0 ? (
                 diagnosis.map((diagnosis) => (

@@ -8,6 +8,7 @@ import SideNavbar from "@/elements/SideBar/SideBar";
 import { IoWaterOutline, IoSunnyOutline } from "react-icons/io5";
 import { FaTemperatureHigh } from "react-icons/fa";
 import { GiWaterDrop, GiPlantRoots } from "react-icons/gi";
+import PlantSchedule from "@/elements/PlantSchedule/PlantSchedule";
 
 function DiagnosisPage() {
   const { id } = useParams();
@@ -70,7 +71,10 @@ function DiagnosisPage() {
                 <h2 className="text-base text-gray-900">Symptoms</h2>
                 <ul className="space-y-2 list-disc">
                   {diagnosis?.symptoms.map((symptom, index) => (
-                    <li key={index} className="text-left text-sm font-medium text-gray-600">
+                    <li
+                      key={index}
+                      className="text-left text-sm font-medium text-gray-600"
+                    >
                       {symptom}
                     </li>
                   ))}
@@ -82,7 +86,10 @@ function DiagnosisPage() {
                 <h2 className="text-base text-gray-900">Causes</h2>
                 <ul className="space-y-2 list-disc">
                   {diagnosis?.causes.map((cause, index) => (
-                    <li key={index} className="text-left text-sm font-medium text-gray-600">
+                    <li
+                      key={index}
+                      className="text-left text-sm font-medium text-gray-600"
+                    >
                       {cause}
                     </li>
                   ))}
@@ -93,11 +100,16 @@ function DiagnosisPage() {
               <div className="mt-2">
                 <h2 className="text-base text-gray-900">Treatment</h2>
                 <ul className="space-y-2 list-disc">
-                  {diagnosis?.treatment_and_management.map((treatment, index) => (
-                    <li key={index} className="text-left text-sm font-medium text-gray-600">
-                      {treatment.recommendation}
-                    </li>
-                  ))}
+                  {diagnosis?.treatment_and_management.map(
+                    (treatment, index) => (
+                      <li
+                        key={index}
+                        className="text-left text-sm font-medium text-gray-600"
+                      >
+                        {treatment.recommendation}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
 
@@ -106,7 +118,10 @@ function DiagnosisPage() {
                 <h2 className="text-base text-gray-900">Prevention</h2>
                 <ul className="space-y-2 list-disc">
                   {diagnosis?.prevention?.map((prevent, index) => (
-                    <li key={index} className="text-left text-sm font-medium text-gray-600">
+                    <li
+                      key={index}
+                      className="text-left text-sm font-medium text-gray-600"
+                    >
                       {prevent}
                     </li>
                   ))}
@@ -157,8 +172,12 @@ function DiagnosisPage() {
                             <h3 className="text-sm font-semibold text-gray-800 capitalize">
                               {key.replace("_", " ")}
                             </h3>
-                            <p className="text-sm text-gray-600">{value.ideal}</p>
-                            <p className="text-sm text-gray-600">{value.description}</p>
+                            <p className="text-sm text-gray-600">
+                              {value.ideal}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              {value.description}
+                            </p>
                           </div>
                         </div>
                       )
@@ -170,15 +189,14 @@ function DiagnosisPage() {
               {activeTab === "careCalendar" && (
                 <div className="my-2 flow-root">
                   <h1 className="text-3xl font-bold">Care Calendar</h1>
-                  <h2 className="text-base text-gray-900">{diagnosis.conclusion}</h2>
-                  <Calendar
-                    initialFocus
-                    mode="range"
-                    defaultMonth={date?.from}
-                    selected={date}
-                    onSelect={setDate}
-                    numberOfMonths={2}
-                  />
+                  <h2 className="text-base text-gray-900">
+                    {diagnosis.conclusion}
+                  </h2>
+                  <div>
+                    <PlantSchedule
+                      scheduleData={diagnosis.schedule_for_recovery}
+                    />
+                  </div>
                 </div>
               )}
             </div>
