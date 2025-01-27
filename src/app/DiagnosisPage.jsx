@@ -15,7 +15,7 @@ function DiagnosisPage() {
   const [diagnosis, setDiagnosis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [date, setDate] = useState(new Date());
-  const [activeTab, setActiveTab] = useState("careRules"); // Tracks the active tab
+  const [activeTab, setActiveTab] = useState("careCalendar"); // Tracks the active tab
 
   useEffect(() => {
     if (!id) {
@@ -135,16 +135,6 @@ function DiagnosisPage() {
                 <div className="flex gap-4">
                   <button
                     className={`py-4 text-sm font-medium ${
-                      activeTab === "careRules"
-                        ? "border-b-2 border-gray-900 text-gray-900"
-                        : "text-gray-600 hover:border-gray-400 hover:text-gray-800"
-                    }`}
-                    onClick={() => setActiveTab("careRules")}
-                  >
-                    Care Rules
-                  </button>
-                  <button
-                    className={`py-4 text-sm font-medium ${
                       activeTab === "careCalendar"
                         ? "border-b-2 border-gray-900 text-gray-900"
                         : "text-gray-600 hover:border-gray-400 hover:text-gray-800"
@@ -152,6 +142,17 @@ function DiagnosisPage() {
                     onClick={() => setActiveTab("careCalendar")}
                   >
                     Care Calendar
+                  </button>
+
+                  <button
+                    className={`py-4 text-sm font-medium ${
+                      activeTab === "careRules"
+                        ? "border-b-2 border-gray-900 text-gray-900"
+                        : "text-gray-600 hover:border-gray-400 hover:text-gray-800"
+                    }`}
+                    onClick={() => setActiveTab("careRules")}
+                  >
+                    Care Rules
                   </button>
                 </div>
               </div>
@@ -195,6 +196,7 @@ function DiagnosisPage() {
                   <div>
                     <PlantSchedule
                       scheduleData={diagnosis?.schedule_for_recovery}
+                      diagnosisId={id}
                     />
                   </div>
                 </div>

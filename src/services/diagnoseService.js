@@ -1,4 +1,4 @@
-import { doc, getDoc, collection, query, where, getDocs ,setDoc } from "firebase/firestore";
+import { doc, getDoc, collection, query, where, getDocs ,setDoc , updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
 
@@ -105,3 +105,40 @@ export const getDiagnosisDataByUserId = async (userId) => {
     return [];
   }
 };
+
+export const updateActionStatus = async (diagnosisId, dayIndex, actionIndex, newStatus) => {
+  if (!diagnosisId) {
+    console.error("Diagnosis ID is required to update action status.");
+    return false;
+  }
+
+  try {
+    const diagnosisRef = doc(db, "diagnosis_data", diagnosisId);
+    const docSnap = await getDoc(diagnosisRef);
+
+    if (!docSnap.exists()) {
+      console.error("Diagnosis document not found");
+      return false;
+    }
+
+    const data = docSnap.data();
+    const scheduleData = data.schedule_for_recovery;
+
+    // Update the status of the specific action
+    if (scheduleData[dayIndex]?.actions[actionIndex] !== undefined) {
+      scheduleData[dayIndex].actions[actionIndex].status = newStatus;
+      
+      await updateDoc(diagnosisRef, {
+        schedule_for_recovery: scheduleData
+      });
+      
+      return true;
+    }
+    
+    return false;
+  } catch (error) {
+    console.error("Error updating action status:", error);
+    return false;
+  }
+};
+

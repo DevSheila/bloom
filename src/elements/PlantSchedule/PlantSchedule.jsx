@@ -1,6 +1,11 @@
-
 import React, { useState } from "react";
-import { GiWaterDrop, GiSpade, GiCrossMark, GiFarmer, GiPlantRoots } from "react-icons/gi";
+import {
+  GiWaterDrop,
+  GiSpade,
+  GiCrossMark,
+  GiFarmer,
+  GiPlantRoots,
+} from "react-icons/gi";
 import { IoCutSharp } from "react-icons/io5";
 import {
   PiBinocularsDuotone,
@@ -8,12 +13,16 @@ import {
   PiRulerThin,
   PiStethoscopeFill,
 } from "react-icons/pi";
+import { FaCheckCircle, FaRegCircle } from "react-icons/fa"; // Import check and circle icons
+import { updateActionStatus } from "@/services/diagnoseService";
 
-const PlantSchedule = ({ scheduleData }) => {
-  const [selectedDay, setSelectedDay] = useState(scheduleData[0]?.day); // Initialize with the first day's date
+// Update the PlantSchedule component
+const PlantSchedule = ({ scheduleData, diagnosisId }) => {
+  const [localScheduleData, setLocalScheduleData] = useState(scheduleData);
+  const [selectedDay, setSelectedDay] = useState(scheduleData[0]?.day);
+  const [pendingUpdates, setPendingUpdates] = useState(new Set());
 
-  
-  // Icons mapping
+  // Icons mapping remains the same
   const conditionIcons = {
     Watering: <GiWaterDrop className="text-blue-500 text-sm" />,
     Pruning: <IoCutSharp className="text-green-500 text-sm" />,
@@ -27,15 +36,65 @@ const PlantSchedule = ({ scheduleData }) => {
     Soil: <GiPlantRoots className="text-amber-500 text-sm" />,
   };
 
+/*************  ✨ Codeium Command ⭐  *************/
+  /**
+   * Handles the click event on a day in the schedule.
+   * 
+   * Updates the selectedDay state with the clicked day.
+   * @param {string} day The day that was clicked (e.g. "Monday", "Tuesday", etc.).
+   */
+/******  e24a8b1c-4e88-4a2f-8235-aed46d713aca  *******/
   const handleDayClick = (day) => {
     setSelectedDay(day);
+  };
+
+  const handleStatusToggle = async (dayIndex, actionIndex, currentStatus) => {
+    // Create a unique key for this update
+    const updateKey = `${dayIndex}-${actionIndex}`;
+    
+    // If this action is already being updated, ignore the click
+    if (pendingUpdates.has(updateKey)) return;
+
+    const newStatus = !currentStatus;
+
+    // Optimistically update the UI
+    const newScheduleData = [...localScheduleData];
+    newScheduleData[dayIndex].actions[actionIndex].status = newStatus;
+    setLocalScheduleData(newScheduleData);
+
+    // Add this update to pending set
+    setPendingUpdates(prev => new Set(prev).add(updateKey));
+
+    try {
+      const success = await updateActionStatus(diagnosisId, dayIndex, actionIndex, newStatus);
+
+      if (!success) {
+        // If the update failed, revert the change
+        const revertedData = [...localScheduleData];
+        revertedData[dayIndex].actions[actionIndex].status = currentStatus;
+        setLocalScheduleData(revertedData);
+      }
+    } catch (error) {
+      console.error("Failed to update action status:", error);
+      // Revert on error
+      const revertedData = [...localScheduleData];
+      revertedData[dayIndex].actions[actionIndex].status = currentStatus;
+      setLocalScheduleData(revertedData);
+    } finally {
+      // Remove this update from pending set
+      setPendingUpdates(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(updateKey);
+        return newSet;
+      });
+    }
   };
 
   return (
     <div className="flex flex-col w-full max-w-lg my-4">
       {/* Day Headers */}
       <div className="flex flex-row overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 space-x-2 p-2">
-        {scheduleData.map((item) => (
+        {localScheduleData.map((item, dayIndex) => (
           <div
             key={item.day}
             onClick={() => handleDayClick(item.day)}
@@ -45,7 +104,11 @@ const PlantSchedule = ({ scheduleData }) => {
                 : "text-gray-500 rounded-md border border-emerald-600 p-2"
             }`}
           >
-            <div>{new Date(item.day).toLocaleDateString(undefined, { weekday: "short" })}</div>
+            <div>
+              {new Date(item.day).toLocaleDateString(undefined, {
+                weekday: "short",
+              })}
+            </div>
             <div className="text-xs font-normal">
               {new Date(item.day).getDate()}
             </div>
@@ -55,9 +118,9 @@ const PlantSchedule = ({ scheduleData }) => {
 
       {/* Action Cards */}
       <div>
-        {scheduleData.map((item) => {
+        {localScheduleData.map((item, dayIndex) => {
           if (item.day !== selectedDay) {
-            return null; // Only render for the selected day
+            return null;
           }
 
           return (
@@ -71,22 +134,37 @@ const PlantSchedule = ({ scheduleData }) => {
                 })}
               </p>
               {item.actions &&
-                item.actions.map((action, index) => (
-                  <div
-                    key={`${item.day}-action-${index}`}
-                    className="flex items-center gap-4 border rounded-lg p-4 bg-white mb-2"
-                  >
-                    <div>{conditionIcons[action.category]}</div>
-                    <div>
-                      <span className="text-xs text-gray-400 font-medium uppercase">
-                        {action.category}
-                      </span>
-                      <p className="text-sm text-gray-700">
-                        {action.description}
-                      </p>
+                item.actions.map((action, actionIndex) => {
+                  const updateKey = `${dayIndex}-${actionIndex}`;
+                  const isUpdating = pendingUpdates.has(updateKey);
+
+                  return (
+                    <div
+                      key={`${item.day}-action-${actionIndex}`}
+                      onClick={() => handleStatusToggle(dayIndex, actionIndex, action.status)}
+                      className="flex items-center gap-1 border rounded-lg p-4 bg-white mb-2 transition-all duration-200 transform"
+                      disabled={isUpdating}
+                   
+                   >
+
+                        {action.status ? (
+                          <FaCheckCircle className="text-emerald-700 text-xl" />
+                        ) : (
+                          <FaRegCircle className="hover:text-emerald-500 text-xl text-gray-300" />
+                        )}
+                      <div>{conditionIcons[action.category]}</div>
+
+                      <div>
+                        <span className="text-xs text-gray-400 font-medium uppercase">
+                          {action.category}
+                        </span>
+                        <p className="text-sm text-gray-700">
+                          {action.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
             </div>
           );
         })}
