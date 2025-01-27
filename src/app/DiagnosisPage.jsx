@@ -36,125 +36,6 @@ function DiagnosisPage() {
   if (!diagnosis) {
     return null;
   }
-  const apiData =  [
-    {
-      "day": "2023-10-20",
-      "actions": [
-        {
-          "category": "Treatment",
-          "description": "Apply fungicide spray to affected areas."
-        },
-        {
-          "category": "Pruning",
-          "description": "Trim affected leaves to reduce further infection."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-21",
-      "actions": [
-        {
-          "category": "Monitoring",
-          "description": "Check soil moisture and ensure proper drainage."
-        },
-        {
-          "category": "Treatment",
-          "description": "Reapply fungicide if symptoms persist."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-22",
-      "actions": [
-        {
-          "category": "Observation",
-          "description": "Inspect the plant for new symptoms."
-        },
-        {
-          "category": "Prevention",
-          "description": "Mulch around the base to retain moisture and regulate temperature."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-23",
-      "actions": [
-        {
-          "category": "Treatment",
-          "description": "Apply fungicide spray to affected areas."
-        },
-        {
-          "category": "Pruning",
-          "description": "Trim affected leaves to reduce further infection."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-24",
-      "actions": [
-        {
-          "category": "Monitoring",
-          "description": "Check soil moisture and ensure proper drainage."
-        },
-        {
-          "category": "Treatment",
-          "description": "Reapply fungicide if symptoms persist."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-25",
-      "actions": [
-        {
-          "category": "Observation",
-          "description": "Inspect the plant for new symptoms."
-        },
-        {
-          "category": "Prevention",
-          "description": "Mulch around the base to retain moisture and regulate temperature."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-28",
-      "actions": [
-        {
-          "category": "Treatment",
-          "description": "Apply fungicide spray to affected areas."
-        },
-        {
-          "category": "Pruning",
-          "description": "Trim affected leaves to reduce further infection."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-29",
-      "actions": [
-        {
-          "category": "Monitoring",
-          "description": "Check soil moisture and ensure proper drainage."
-        },
-        {
-          "category": "Treatment",
-          "description": "Reapply fungicide if symptoms persist."
-        }
-      ]
-    },
-    {
-      "day": "2023-10-30",
-      "actions": [
-        {
-          "category": "Observation",
-          "description": "Inspect the plant for new symptoms."
-        },
-        {
-          "category": "Prevention",
-          "description": "Mulch around the base to retain moisture and regulate temperature."
-        }
-      ]
-    }
-  ];
 
   // Icons mapping
   const conditionIcons = {
@@ -176,13 +57,13 @@ function DiagnosisPage() {
             <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
               {/* Overview */}
               <h1 className="sm:text-2xl font-bold text-gray-900 sm:text-3xl">
-                {diagnosis.plant_name}
+                {diagnosis?.plant_name}
               </h1>
               <h2 className="text-base text-gray-900">
-                {diagnosis.diagnosis_title}
+                {diagnosis?.diagnosis_title}
               </h2>
               <p className="mt-1 text-left text-sm font-medium text-gray-600">
-                {diagnosis.overview}
+                {diagnosis?.overview}
               </p>
 
               {/* Symptoms */}
@@ -309,12 +190,11 @@ function DiagnosisPage() {
                 <div className="my-2 flow-root">
                   <h1 className="text-3xl font-bold">Care Calendar</h1>
                   <h2 className="text-base text-gray-900">
-                    {diagnosis.conclusion}
+                    {diagnosis?.conclusion}
                   </h2>
                   <div>
                     <PlantSchedule
-                      // scheduleData={apiData}
-                      scheduleData={diagnosis.schedule_for_recovery}
+                      scheduleData={diagnosis?.schedule_for_recovery}
                     />
                   </div>
                 </div>

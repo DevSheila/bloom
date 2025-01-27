@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { GiWaterDrop, GiSpade, GiCrossMark, GiFarmer } from "react-icons/gi";
+import { GiWaterDrop, GiSpade, GiCrossMark, GiFarmer, GiPlantRoots } from "react-icons/gi";
 import { IoCutSharp } from "react-icons/io5";
 import {
   PiBinocularsDuotone,
@@ -22,9 +22,9 @@ const PlantSchedule = ({ scheduleData }) => {
     Prevention: <GiCrossMark className="text-red-500 text-sm" />,
     Monitoring: <PiRulerThin className="text-emerald-500 text-sm" />,
     Observation: <PiBinocularsDuotone className="text-indigo-500 text-sm" />,
-    Maintenance: <GiFarmer className="text-yellow-500 text-sm" />,
+    Maintenance: <GiFarmer className="text-blue-500 text-sm" />,
     Environment: <PiMapPinArea className="text-yellow-500 text-sm" />,
-    
+    Soil: <GiPlantRoots className="text-amber-500 text-sm" />,
   };
 
   const handleDayClick = (day) => {
