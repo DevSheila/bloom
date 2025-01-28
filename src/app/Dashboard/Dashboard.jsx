@@ -6,8 +6,11 @@ import { UpcomingTasks } from "@/elements/UpcomingTasks/UpcomingTasks";
 import React from "react";
 import { BsArrowUpRight, BsPlusLg } from "react-icons/bs";
 import WeatherForecasting from "../WeatherForecasting/WeatherForecasting";
+import { useAuth } from "@/context/AuthContext";
 
-function Dashboard() {
+function Dashboard() { 
+    const { user, isSignedIn } = useAuth();
+  
   return (
     <>
       <SideBar /> 
@@ -47,7 +50,8 @@ function Dashboard() {
             </p>
 
             {/* Upcoming Tasks Component */}
-            <UpcomingTasks />
+            {/* <UpcomingTasks /> */}
+            <UpcomingTasks userId={user?.id} />
 
 
           </div>

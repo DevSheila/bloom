@@ -13,7 +13,7 @@ import {
   PiRulerThin,
   PiStethoscopeFill,
 } from "react-icons/pi";
-import { FaCheckCircle, FaRegCircle } from "react-icons/fa"; // Import check and circle icons
+import { FaCheckCircle, FaRegCircle } from "react-icons/fa"; 
 import { updateActionStatus } from "@/services/diagnoseService";
 
 // Update the PlantSchedule component
@@ -36,14 +36,6 @@ const PlantSchedule = ({ scheduleData, diagnosisId }) => {
     Soil: <GiPlantRoots className="text-amber-500 text-sm" />,
   };
 
-/*************  ✨ Codeium Command ⭐  *************/
-  /**
-   * Handles the click event on a day in the schedule.
-   * 
-   * Updates the selectedDay state with the clicked day.
-   * @param {string} day The day that was clicked (e.g. "Monday", "Tuesday", etc.).
-   */
-/******  e24a8b1c-4e88-4a2f-8235-aed46d713aca  *******/
   const handleDayClick = (day) => {
     setSelectedDay(day);
   };

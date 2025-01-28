@@ -8,7 +8,7 @@ function DiagnosisEmptyState() {
         <div className="text-center">
           <img
             src="/plantcare1.svg"
-            className="mx-auto w-3/4 h-3/4"
+             className="mx-auto w-3/4 h-3/4 md:w-1/2 md:h-1/2"
             alt="No Diagnosis yet" 
           />
 
