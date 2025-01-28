@@ -11,7 +11,7 @@ import DiagnosisEmptyState from "@/elements/EmptyState/DiagnosisEmptyState";
 const DiagnosisesPage = () => {
   const [diagnosis, setDiagnosis] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user, isSignedIn } = useAuth();
+  const { user, isSignedIn } = useAuth(); 
 
   useEffect(() => {
     if (user) {
